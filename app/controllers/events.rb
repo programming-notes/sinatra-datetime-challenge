@@ -43,3 +43,10 @@ get "/events/:id" do
 
   erb :"events/show"
 end
+
+delete "/events/:id" do
+  event = Event.find(params[:id])
+  event.destroy
+
+  redirect "/events"
+end
