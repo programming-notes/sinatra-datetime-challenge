@@ -15,7 +15,7 @@ post "/events" do
   @event = Event.new(params[:event])
 
   if @event.save
-    redirect "/events"
+    redirect "/events/#{@event.id}"
   else
     erb :"events/new"
   end
