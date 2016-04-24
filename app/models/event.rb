@@ -7,6 +7,10 @@ class Event < ActiveRecord::Base
     starts_within(today.beginning_of_day, today.end_of_day)
   end
 
+  def self.not_passed
+    where("starts_at >= ?", today)
+  end
+
   def self.starts_within(earliest_time, latest_time)
     where(starts_at: earliest_time..latest_time)
   end
