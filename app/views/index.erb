@@ -1,0 +1,12 @@
+<main>
+  <h1>Today's Events</h1>
+  <ul id="todays-events">
+    <% @events.each do |event| %>
+      <li>
+        <article>
+          <%= event.name %>
+        </article>
+      </li>
+    <% end %>
+  </ul>
+</main>
