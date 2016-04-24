@@ -1,0 +1,11 @@
+<main>
+  <h1>All Events</h1>
+
+  <ul>
+    <% @events.each do |event| %>
+      <li>
+        <%= erb :'events/_event_card', locals: { event: event } %>
+      </li>
+    <% end %>
+  </ul>
+</main>
