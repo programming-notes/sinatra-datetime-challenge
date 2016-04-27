@@ -1,12 +1,9 @@
 <% if object.errors.any? %>
-  <section>
-    <h1>Something Went Wrong</h1>
-    <ul>
-      <% object.errors.messages.each do |attribute, messages| %>
-        <% messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
+  <ul class="errors-list blue-callout">
+    <% object.errors.messages.each do |attribute, messages| %>
+      <% messages.each do |message| %>
+        <li><%= message %></li>
       <% end %>
-    </ul>
-  </section>
+    <% end %>
+  </ul>
 <% end %>
