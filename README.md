@@ -58,10 +58,23 @@ One option that we can employ to encourage better data is to use a different typ
 
 Update the `app/views/events/_form.erb` partial to use a `datetime-local` input for collecting an event's starting date and time.  See Figure 2 for an example of how the form will behave with a `datetime-local` field.  Ensure that the input is still populated when editing an event.
 
-![Using a datetime-local input](readme-assets/datetime-local-animation.gif)
+![Using a datetime-local input](readme-assets/datetime-local-animation.gif)  
 *Figure 2*.  Using a `datetime-local` input field.
 
+
+### Release 2: Use a JavaScript Date Picker
+Using a `datetime-local	` input field is an improvement over the generic text input.  But ... [not all browsers support it][support datetime-local].  If all our users are using Chrome, we're in luck, but they probably don't.
+
+Another way to control user input of dates and times is with JaveScript date and time pickers.  While there are different date and time pickers available, our application is set up to use the [jQuery UI datepicker widget][jquery datepicker] and the [jQuery Timepicker plugin][jquery timepicker].  By "set up", we mean that all the required JavaScript, CSS, and image files have been added and included (see the `public/` directory and the `<head>` tag of `app/views/layout.erb`).
+
+Read the documentation on how to use the date and time pickers and then update our form to use them.  See Figure 3 for an example implementation.  Again, ensure that the date and time are still populated when editing an event.
+
+![User a JS datepicker](readme-assets/datepicker-animation.gif)  
+*Figure 3*.  Using JavaScript date and time pickers.
 
 
 [datetime-local]: https://www.w3.org/TR/html-markup/input.datetime-local.html
 [ISO 8601]: https://en.wikipedia.org/wiki/ISO_8601
+[jquery datepicker]: http://api.jqueryui.com/datepicker/
+[jquery timepicker]: http://timepicker.co/
+[support datetime-local]: http://caniuse.com/#search=datetime-local
