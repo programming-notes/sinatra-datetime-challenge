@@ -63,7 +63,7 @@ Update the `app/views/events/_form.erb` partial to use a `datetime-local` input 
 
 
 ### Release 2: Use a JavaScript Date Picker
-Using a `datetime-local	` input field is an improvement over the generic text input.  But ... [not all browsers support it][support datetime-local].  If all our users are using Chrome, we're in luck, but they probably don't.
+Using a `datetime-local	` input field is an improvement over the generic text input.  But! ... [not all browsers support it][support datetime-local].  If all our users are using Chrome, we're in luck, but they probably don't.
 
 Another way to control user input of dates and times is with JaveScript date and time pickers.  While there are different date and time pickers available, our application is set up to use the [jQuery UI datepicker widget][jquery datepicker] and the [jQuery Timepicker plugin][jquery timepicker].  By "set up", we mean that all the required JavaScript, CSS, and image files have been added and included (see the `public/` directory and the `<head>` tag of `app/views/layout.erb`).
 
