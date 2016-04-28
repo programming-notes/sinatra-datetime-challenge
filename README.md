@@ -49,4 +49,17 @@ event.starts_at
 *Table 1*.  Date and time formatted strings.
 
 
+### Release 1: Use a `datetime-local` Input
+As always, we can't trust users to provide us with clean data: we can't assume that a user will enter a date and time in a format that Ruby can parse.  So, what can we do to help users provide clean data?
+
+As our application is currently written, we simply provide a note below our text input fields that provides an example date and time in a format that will work: *2016-04-15 06:30 pm*.  And, that might be enough for some users but probably not for all of them.
+
+One option that we can employ to encourage better data is to use a different type of input field.  In other words, not a text input in which users can type whatever they want.  HTML5 introduced a number of new input types.  One of these types is [`datetime-local`][datetime-local].
+
+Update the `app/views/events/_form.erb` partial to use a `datetime-local` input for collecting an event's starting date and time.  See Figure 2 for an example of how the form will behave with a `datetime-local` field.  Ensure that the input is still populated when editing an event.
+
+![Using a datetime-local input](readme-assets/datetime-local-animation.gif)
+
+
+[datetime-local]: https://www.w3.org/TR/html-markup/input.datetime-local.html
 [ISO 8601]: https://en.wikipedia.org/wiki/ISO_8601
