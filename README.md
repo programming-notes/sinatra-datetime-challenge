@@ -59,6 +59,8 @@ One option that we can employ to encourage better data is to use a different typ
 Update the `app/views/events/_form.erb` partial to use a `datetime-local` input for collecting an event's starting date and time.  See Figure 2 for an example of how the form will behave with a `datetime-local` field.  Ensure that the input is still populated when editing an event.
 
 ![Using a datetime-local input](readme-assets/datetime-local-animation.gif)
+*Figure 2*.  Using a `datetime-local` input field.
+
 
 
 [datetime-local]: https://www.w3.org/TR/html-markup/input.datetime-local.html
