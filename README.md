@@ -73,6 +73,11 @@ Read the documentation on how to use the date and time pickers and then update o
 *Figure 3*.  Using JavaScript date and time pickers.
 
 
+### Release 3: Search for Events Occurring on Specific Dates
+We're going to do a little more work with dates.  We want to allow users to search for events occurring in a specific date range.  Users will supply a starting date and an ending date, and we'll return a list of events starting between the beginning of the starting day and the end of the ending date.  See Figure 4 for an example implementation.
+
+
+
 [datetime-local]: https://www.w3.org/TR/html-markup/input.datetime-local.html
 [ISO 8601]: https://en.wikipedia.org/wiki/ISO_8601
 [jquery datepicker]: http://api.jqueryui.com/datepicker/
