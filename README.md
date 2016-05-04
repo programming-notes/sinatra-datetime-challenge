@@ -8,7 +8,7 @@ There are tons of ways that humans represent dates.  Unfortunately, Ruby doesn't
 
 ## Releases
 ### Release 0:  String Formats that Ruby Can Parse
-We've been supplied with a CRUD app with one-resource: an `Event` model with a `datetime` attribute named `starts_at`.  Users will create events by submitting a form, so we'll be working with dates and times entered by users.  This means that the dates and times that users enter must be formatted in a way that Ruby can parse.
+We've been supplied with a CRUD app with one resource: an `Event` model with a `datetime` attribute named `starts_at`.  Users will create events by submitting a form, so we'll be working with dates and times entered by users.  This means that the dates and times that users enter must be formatted in a way that Ruby can parse.
 
 So, in what format must a string be for Ruby to parse it to a date and time?  One format is *[ISO 8601][]*, an international standard for representing dates and times.  There's also *JIS X 0301*, *RFC 2822*, *RFC 3339*, etc.  In other words, probably nothing that our users will enter on their own.
 
