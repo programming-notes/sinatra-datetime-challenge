@@ -1,16 +1,16 @@
 # Working with Dates and Times
 
 ## Summary
-Working with dates and times can be tricky—particularly when we have to rely on user input.  Why would that be tricky?  Think about entering a date in a form field.  How many formats could the same date take?  "April 15, 1980", "15/04/1980", "4-15-80", etc.  Now imagine entering a date and time together.  How many different forms could that take?  "04-15-1980 2:00 PM", "April 15, 1980 14:00", etc.
+Working with dates and times can be tricky—particularly when we have to rely on user input.  Why would that be tricky?  Think about entering a date in a form field.  How many formats could the same date take?  `April 15, 1980`, `15/04/1980`, `4-15-80`, etc.  Now imagine entering a date and time together.  How many different forms could that take?  `04-15-1980 2:00 PM`, `April 15, 1980 14:00`, etc.
 
-There are tons of ways that humans represent dates.  Unfortunately, Ruby doesn't understand all of them.  We're going to look at representations of dates and times that Ruby understands and explore some options for getting user input for dates in one of these forms.
+There are tons of ways that humans represent dates.  Unfortunately, Ruby doesn't understand [all of them][xkcd 8601].  We're going to look at representations of dates and times that Ruby understands and explore some options for getting user input for dates in one of these forms.
 
 
 ## Releases
 ### Release 0:  String Formats that Ruby Can Parse
 We've been supplied with a CRUD app with one resource: an `Event` model with a `datetime` attribute named `starts_at`.  Users will create events by submitting a form, so we'll be working with dates and times entered by users.  This means that the dates and times that users enter must be formatted in a way that Ruby can parse.
 
-So, in what format must a string be for Ruby to parse it to a date and time?  One format is *[ISO 8601][]*, an international standard for representing dates and times.  There's also *JIS X 0301*, *RFC 2822*, *RFC 3339*, etc.  In other words, probably nothing that our users will enter on their own.
+So, in what format must a string be for Ruby to parse it to a date and time?  One format is *[ISO 8601][]*, an international standard for representing dates and times and a probably a safe bet when we need to format a date as a string.  But, Ruby will also parse *JIS X 0301*, *RFC 2822*, *RFC 3339*, etc.  In other words, probably nothing that our users will enter on their own.
 
 We won't create an exhaustive list, but let's explore a few formats to see how Ruby handles them.  Open the `rake console` and try to assign an event a starting date and time using each of the strings in Table 1.  Some will parse correctly and some won't.  See Figure 1 for a couple examples; notice that when a string doesn't parse properly, the attribute's value is set to `nil`.  Guess which formats will work before using them.  What happens if the string leaves out elements like the time zone, seconds, etc.?
 
@@ -63,7 +63,7 @@ Update the `app/views/events/_form.erb` partial to use a `datetime-local` input 
 
 
 ### Release 2: Use a JavaScript Date Picker
-Using a `datetime-local	` input field is an improvement over the generic text input.  But! ... [not all browsers support it][support datetime-local].  If all our users are using Chrome, we're in luck, but they probably don't.
+Using a `datetime-local` input field is an improvement over the generic text input.  But! ... [not all browsers support it][support datetime-local].  If all our users are using Chrome, we're in luck, but they probably don't.
 
 Another way to control user input of dates and times is with JavaScript date and time pickers.  While there are different date and time pickers available, our application is set up to use the [jQuery UI datepicker widget][jquery datepicker] and the [jQuery Timepicker plugin][jquery timepicker].  By "set up", we mean that all the required JavaScript, CSS, and image files have been added and included (see the `public/` directory and the `<head>` tag of `app/views/layout.erb`).
 
@@ -91,3 +91,4 @@ We should leave this challenge able to work with dates in a web application and 
 [jquery datepicker]: http://api.jqueryui.com/datepicker/
 [jquery timepicker]: http://timepicker.co/
 [support datetime-local]: http://caniuse.com/#search=datetime-local
+[xkcd 8601]: https://xkcd.com/1179/
