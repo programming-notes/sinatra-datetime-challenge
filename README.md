@@ -50,7 +50,7 @@ Unfortunately, we can't assume that users will enter dates and times in a format
 
 One option for encouraging better data is to use a different type of input field.  In other words, not a text input which allows users to type whatever they want.
 
-HTML5 introduced a number of new input types.  One of these types is [`datetime-local`][datetime-local].  Update the `app/views/events/_form.erb` partial to use a `datetime-local` input for collecting an event's starting date and time.  Ensure that the input is still populated when editing an event; the value of the `datetime-local` must be given in a specific format.  See Figure 2 for an example of how the form will behave with a `datetime-local` field.
+HTML5 introduced a number of new input types.  One of these types is [`datetime-local`][datetime-local].  Update the `app/views/events/_form.erb` partial to use a `datetime-local` input for collecting an event's starting date and time.  Ensure that the input is still populated when editing an event; the value of the `datetime-local` input must be given in a specific format (see linked docummentation).  See Figure 2 for an example of how the form will behave with a `datetime-local` field.
 
 ![Using a datetime-local input](readme-assets/datetime-local-animation.gif)  
 *Figure 2*.  Using a `datetime-local` input field.
