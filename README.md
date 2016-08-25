@@ -72,7 +72,7 @@ Read the documentation on how to use the date and time pickers and then update o
 ## Conclusion
 It's difficult working with dates and times.  We've taken a look at some of the issues in working with dates based on what Ruby can parse.  We've also explored issues related to user input of dates and times and how we can attempt to control that input.  There are other techniques that we can use as well—for example, client-side validations.
 
-We should leave this challenge able to work with dates in a web application and with an understanding of some of the complications involved.
+We should leave this challenge able to work with dates in a web application and with an understanding of some of the complications involved.  For example, encoding a date in text requires specific formatting.
 
 
 [datetime-local]: https://www.w3.org/TR/html-markup/input.datetime-local.html
