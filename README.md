@@ -68,8 +68,8 @@ HTML5 introduced a number of new input types.  One of these types is [`datetime-
 *Figure 2*.  Using a `datetime-local` input field.
 
 
-### Release 4: Use a JavaScript Date Picker *(optional)*
-*This is an optional release.*
+### Release 4: Use a JavaScript Date Picker *(stretch)*
+*This is an optional stretch release.*
 
 Using a `datetime-local` input field is an improvement over the generic text input.  It helps ensure that correctly formatted data is sent from the form.  But! ... [not all browsers support it][support datetime-local].  If all our users are using Chrome, we're in luck, but they probably don't.
 
