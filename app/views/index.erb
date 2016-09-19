@@ -7,7 +7,7 @@
   <section class="todays-events blue-callout col-2">
     <h1>Today's Events</h1>
     <ul class="no-bullets todays-events-list">
-      <% @events.each do |event| %>
+      <% @todays_events.each do |event| %>
         <li class="todays-events-list-item">
           <article>
             <a href="/events/<%= event.id %>"><%= event.name %></a>

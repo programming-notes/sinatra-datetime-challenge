@@ -7,8 +7,20 @@ There are tons of ways that humans represent dates.  Unfortunately, Ruby doesn't
 
 
 ## Releases
-### Release 0:  String Formats that Ruby Can Parse
-We've been supplied with a CRUD app with one resource: an `Event` model with a `datetime` attribute named `starts_at`.  Users will create events by submitting a form, so we'll be working with dates and times entered by users.  This means that the dates and times that users enter must be formatted in a way that Ruby can parse.
+### Release 0:  Today's Events
+We've been supplied a CRUD app with one resource: an `Event` model with a `datetime` attribute named `starts_at`.  We're going to begin the challenge by filtering events by their start times.  
+
+On the homepage, there is a sidebar with the heading "Today's Events".  It's currently listing all events in the database, but we only want it to list the events occurring today.  It doesn't matter if the event has already started; any event starting today should be listed.  The events should continue to be ordered by start time.
+
+*Note:*  When we seed the database, we create five events that began in the past, three that began or will begin sometime today, and five events that begin in the future.
+
+
+### Release 1:  Upcoming Events
+Next, let's filter the events shown on the "Upcoming Events" page.  Again, all events are currently listed.  Update the page to list only events whose start times are in the future.  The events could start later today or years later—anytime in the future.  Continue ordering events by start time.
+
+
+### Release 2:  String Formats that Ruby Can Parse
+Now let's discuss providing data that represents a date.  In our application, users will create events by submitting a form, so we'll be working with dates and times entered by users.  This means that the dates and times that users enter must be formatted in a way that Ruby can parse.
 
 So, in what format must a string be for Ruby to parse it to a date and time?  One format is *[ISO 8601][]*, an international standard for representing dates and times and probably a safe bet when we need to format a date as a string.  But, Ruby will also parse *JIS X 0301*, *RFC 2822*, *RFC 3339*, etc.
 
@@ -45,7 +57,7 @@ event.starts_at
 *Figure 1*. Assigning an `Event` a starting data and time using a string.
 
 
-### Release 1: Use a `datetime-local` Input
+### Release 3: Use a `datetime-local` Input
 Unfortunately, we can't assume that users will enter dates and times in a format that Ruby can parse.  So, what can we do to help users provide clean data?  In its current state, our form provides a note below our text input fields that provides an example date and time in a format that will work: *2016-04-15 06:30 pm*.  And, that might be enough for some users but probably not for all of them.
 
 One option for encouraging better data is to use a different type of input field.  In other words, not a text input which allows users to type whatever they want.
@@ -56,8 +68,8 @@ HTML5 introduced a number of new input types.  One of these types is [`datetime-
 *Figure 2*.  Using a `datetime-local` input field.
 
 
-### Release 2: Use a JavaScript Date Picker *(optional)*
-*This is an optional release.*
+### Release 4: Use a JavaScript Date Picker *(stretch)*
+*This is an optional stretch release.*
 
 Using a `datetime-local` input field is an improvement over the generic text input.  It helps ensure that correctly formatted data is sent from the form.  But! ... [not all browsers support it][support datetime-local].  If all our users are using Chrome, we're in luck, but they probably don't.
 

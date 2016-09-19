@@ -1,5 +1,5 @@
 get "/events" do
-  @events = Event.not_passed.order(:starts_at)
+  @upcoming_events = Event.order(:starts_at)
 
   erb :"events/index"
 end
