@@ -16,6 +16,16 @@ end
 # Remove any events from the database
 Event.delete_all
 
+# Create 5 past events
+5.times do
+  Event.create!({
+    :name      => fake_event_name,
+    :location  => fake_location,
+    :starts_at => fake_start_time(Date.current.advance(days: -14), Date.yesterday)
+  })
+end
+
+
 # Create 3 events for today
 3.times do
   Event.create!({
@@ -25,8 +35,8 @@ Event.delete_all
   })
 end
 
-# Create 20 future events
-20.times do
+# Create 5 future events
+5.times do
   Event.create!({
     :name      => fake_event_name,
     :location  => fake_location,
