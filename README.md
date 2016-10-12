@@ -6,6 +6,12 @@ Working with dates and times can be tricky—particularly when we have to rely o
 There are tons of ways that humans represent dates.  Unfortunately, Ruby doesn't understand [all of them][xkcd 8601].  We're going to look at representations of dates and times that Ruby understands and explore some options for getting user input for dates in one of these forms.
 
 
+### Timezones
+Working with timezones is complex.  We have to juggle the time zone of the database, the time zone of the system running our application, the time zone we configure our application to use, the time zone in which each user is located ... It can be a lot to coordinate.
+
+To simplify things in this challenge, we'll settle on one time zone:  [Coordinated Universal Time][wikipedia utc] (UTC).  Let's assume that our users are okay with having UTC dates and times displayed and that they enter UTC dates and times in the forms.  On top of that, our database is setup to store dates in UTC.  That leaves the time zone for the application and the time zone on our computer.  The provided Sinatra application is configured to use UTC (see `config/environment.rb`), but that probably doesn't match the time zone on our computer, the system time.  We can work around the difference in application time and system time by using specific methods; see this [Thoughtbot article][thoughtbot timezones] for details.
+
+
 ## Releases
 ### Release 0:  Today's Events
 We've been supplied a CRUD app with one resource: an `Event` model with a `datetime` attribute named `starts_at`.  We're going to begin the challenge by filtering events by their start times.  
@@ -92,4 +98,6 @@ We should leave this challenge able to work with dates in a web application and 
 [jquery datepicker]: http://api.jqueryui.com/datepicker/
 [jquery timepicker]: http://timepicker.co/
 [support datetime-local]: http://caniuse.com/#search=datetime-local
+[thoughtbot timezones]: https://robots.thoughtbot.com/its-about-time-zones#three-time-zones
+[wikipedia utc]: https://en.wikipedia.org/wiki/Coordinated_Universal_Time
 [xkcd 8601]: https://xkcd.com/1179/
