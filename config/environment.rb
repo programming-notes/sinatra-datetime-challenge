@@ -42,5 +42,9 @@ end
 Dir[APP_ROOT.join('app', 'controllers', '*.rb')].each { |file| require file }
 Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
 
+# Set up application time zone to be UTC
+require 'active_support/core_ext'
+Time.zone = "UTC"
+
 # Set up the database and models
 require APP_ROOT.join('config', 'database')

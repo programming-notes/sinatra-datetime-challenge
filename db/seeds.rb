@@ -6,8 +6,8 @@ def fake_location
   [Faker::Company.name, Faker::University.name].sample
 end
 
-def fake_start_time(earliest_date = DateTime.now, latest_date = earliest_date.advance(days: 14))
-  Faker::Time.between(earliest_date, latest_date, :afternoon).change(min: [0, 15, 30, 45].sample)
+def fake_start_time(earliest_date = Date.current.beginning_of_day, latest_date = earliest_date.advance(days: 14).end_of_day)
+  Faker::Time.between(earliest_date, latest_date).change(hour: [11, 12, 13, 14].sample, min: [0, 15, 30, 45].sample, sec: 0)
 end
 
 
@@ -21,7 +21,7 @@ Event.delete_all
   Event.create!({
     :name      => fake_event_name,
     :location  => fake_location,
-    :starts_at => fake_start_time(Date.current.advance(days: -14), Date.yesterday)
+    :starts_at => fake_start_time(14.days.ago.beginning_of_day, 2.days.ago.end_of_day)
   })
 end
 
@@ -31,7 +31,7 @@ end
   Event.create!({
     :name      => fake_event_name,
     :location  => fake_location,
-    :starts_at => fake_start_time(Date.current, Date.current.end_of_day)
+    :starts_at => fake_start_time(Date.current.beginning_of_day, Date.current.end_of_day)
   })
 end
 
@@ -40,6 +40,6 @@ end
   Event.create!({
     :name      => fake_event_name,
     :location  => fake_location,
-    :starts_at => fake_start_time(Date.tomorrow)
+    :starts_at => fake_start_time(2.days.from_now.beginning_of_day)
   })
 end
