@@ -6,12 +6,13 @@ def fake_location
   [Faker::Company.name, Faker::University.name].sample
 end
 
+# Faker::Time will only generate times in the local timezone, even wrapped in
+# a Time.use_zone('UTC') block, so we must tweak the timezone ourselves
 def fake_start_time(earliest_date = Date.current.beginning_of_day, latest_date = earliest_date.advance(days: 14).end_of_day)
-  Faker::Time.between(earliest_date, latest_date).change(hour: [11, 12, 13, 14].sample, min: [0, 15, 30, 45].sample, sec: 0)
+  local_date = Faker::Time.between(earliest_date, latest_date)
+  utc_date = local_date.utc
+  utc_date.change(hour: [11, 12, 13, 14].sample, min: [0, 15, 30, 45].sample, sec: 0)
 end
-
-
-
 
 # Remove any events from the database
 Event.delete_all
